@@ -1,7 +1,8 @@
 {
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs18.x"
+      "memory": 1024,
+      "maxDuration": 10
     }
   },
   "rewrites": [
@@ -11,7 +12,10 @@
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "s-maxage=300, stale-while-revalidate=600" }
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=300, stale-while-revalidate=600"
+        }
       ]
     }
   ]
